@@ -122,19 +122,13 @@ const divisbleBy3 = (division) => {
 
 
 
-// --------------------2) Create a function that takes in an array of words and returns an array with all the words capitalized.
+--------------------2) Create a function that takes in an array of words and returns an array with all the words capitalized.
 
 // a) Create a test with expect statements for each of the variables provided.
-describe("nounFinder1", () => {
-      it("takes in an array of words and returns an array with all the words capitalized", () => { 
-        const randomNouns1 = ["streetlamp", "potato", "teeth", "conclusion", "nephew"]
-// Expected output: ["Streetlamp", "Potato", "Teeth", "Conclusion", "Nephew"]
-const randomNouns2 = ["temperature", "database", "chopsticks", "mango"]
-// Expected output: ["Temperature", "Database", "Chopsticks", "Mango"]
-
-    
-        expect(nounfinder1(randomNouns1)).toEqual( ["Streetlamp", "Potato", "Teeth", "Conclusion", "Nephew"])
-        expect(nounfinder1(randomNouns2)).toEqual( ["Temperature", "Database", "Chopsticks", "Mango"])
+describe("NounFinder1", () => {
+      it("takes in an array of words and returns an array with all the words capitalized.", () => { 
+        expect(Nounfinder1(randomNouns1)).toEqual( ["Streetlamp", "Potato", "Teeth", "Conclusion", "Nephew"])
+        expect(Nounfinder1(randomNouns2)).toEqual( ["Temperature", "Database", "Chopsticks", "Mango"])
       })
     })
 
@@ -152,13 +146,12 @@ const randomNouns2 = ["temperature", "database", "chopsticks", "mango"]
 const randomNouns1 = ["streetlamp", "potato", "teeth", "conclusion", "nephew"]
 const randomNouns2 = ["temperature", "database", "chopsticks", "mango"]
 // // declare a function that takes in an array
-const Nounfinder1 = (array) => {
+const Nounfinder1 = () => {
     //  return the array output from the map action
-    return array.map ( (value) => {
-        // with each value access the first index and capitalize the letter then concatenate the remainder of the word
+  
         return value[0].toUppercase() + value.conCat(1)
-    } )
-}
+        // with each value access the first index and capitalize the letter then concatenate the remainder of the word
+       }
 // I keep getting the     ReferenceError: nounfinder1 is not defined, I've tried a variety of different syntax's to tackle this problem and I believe I'm over thinking the process. I understand the overall concept of testing and creating higher order functions, however I'm struggling with implementation.  I would like for someone to go over the logic behind this process a bit more, perhaps in this weeks office hours.  I've ran the test about 10 different times over the last 3 hours, so at this point I will opt to move on from this problem and tackle another . 
 
 
@@ -166,7 +159,7 @@ const Nounfinder1 = (array) => {
 
 // a) Create a test with expect statements for each of the variables provided.
  describe("firstVowels", () => {
-    it("logs the index of the first vowel", ()=> {
+    it("returns the index of the first vowel", ()=> {
         const vowelTester1 = "learn"
 // Expected output: 1
 const vowelTester2 = "academy"
@@ -174,14 +167,57 @@ const vowelTester2 = "academy"
 const vowelTester3 = "challenges"
 // Expected output: 2
 
-      expect(firstVowels(vowelTester1.indexOf(1))).toEqual(1)
-      expect(firstVowels(vowelTester2.indexOf(0))).toEqual(0)
-      expect(firstVowels(vowelTester3.indexOf(2))).toEqual(2)
+      expect(firstVowels(vowelTester1)).toEqual(1)
+      expect(firstVowels(vowelTester2)).toEqual(0)
+      expect(firstVowels(vowelTester3)).toEqual(2)
   } )
  })
 //  ReferenceError: firstVowels is not defined
 
 // b) Create the function that makes the test pass.
+// New Psuedocode 03/01/2023
+//  I'm going to create a function called firstVowels
+// the function will take in a string as an input
+// expected output : return the index of the first vowel it finds in a string
+// I will declare a const variable called theVowels which will be assigned to an array of letters consisting of vowels 
+// I think I will use a for loop to iterate over the strings 
+// I will use conditional statment if and .includes() to interare over the index of each string checking for a vowel letter
+//  New function 03/01/2023
+
+const firstVowels = (string) => {
+      const theVowels = ['a','e','i','o','u','y']
+      for(i=0 ; i < string.length ; i ++) {
+          if (theVowels.includes(string[i])){
+            return i
+          }
+      }
+}
+
+// PASS  ./code-challenges.test.js
+// multBy3
+//   ✓ takes an array of numbers and returns an array with all of the numbers multiplied by 3 (3 ms)
+// divisbleBy3
+//   ✓ takes an object as an argument and returns with a statement on if the value inside it is evenly divisible by the number 3 (1 ms)
+// firstVowels
+//   ✓ returns the index of the first vowel (1 ms)
+
+// Test Suites: 1 passed, 1 total
+// Tests:       3 passed, 3 total
+// Snapshots:   0 total
+// Time:        0.531 s, estimated 1 s
+// Ran all test suites.
+// ✨  Done in 1.46s.
+
+
+
+
+
+
+
+
+
+
+
 // psuedocode: // parameter will be an string
 // Input : we want to input strings
 //  Output: we expect to return an an index value for the associated strings.
